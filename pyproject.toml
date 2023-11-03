@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "prusa-connect-rpi"
+version = "0.1.0"
+description = "Connect raspberry pi camera to Prusa Connect"
+authors = ["Adnan Haque <ahaque12@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "prusa_connect_rpi"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+ffmpeg = "^1.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

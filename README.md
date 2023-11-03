@@ -3,13 +3,18 @@ Connect Raspberry Pi camera to Prusa Connect
 
 I had an old octopi setup that I wanted to repurpose to work with my Prusa MK4. This allows you to reuse your rpi camera you have setup.
 
-# Running
+# Setup
+
+## Environment variables
+Update all environment variables in `config.env`. You will need `FINGERPRINT` and `TOKEN` from Prusa Connect. You can get it by adding a new camera.
+
+## Running
 ```bash
 poetry install
 nohup poetry run picam.py &
 ```
 
-# Setup as a service (linux)
+## Run as a service (linux)
 Edit file
 ```bash
 $ sudo vim /etc/systemd/system/prusa_picam.service

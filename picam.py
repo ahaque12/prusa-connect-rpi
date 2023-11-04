@@ -36,7 +36,7 @@ def take_snapshot():
                            vframes=1,
                            format='image2',
                            pix_fmt='yuvj420p')
-    ffmpeg.run(stream)
+    ffmpeg.run(stream, overwrite_output=True)
 
 
 def upload_snapshot():
@@ -49,7 +49,7 @@ def upload_snapshot():
         data = f.read()
 
     headers = {
-        'content-type': OUTPUT_FILE,
+        'content-type': 'image/jpg',
         'token': TOKEN,
         'fingerprint': FINGERPRINT
         }
@@ -57,7 +57,7 @@ def upload_snapshot():
     r = requests.post(HTTP_URL, data=data, headers=headers)
         
     # Check if request was successful
-    if r.status_code == 200:
+    if r.status_code == 204:
         logger.info('Snapshot uploaded successfully.')
     else:
         logger.error('Snapshot upload failed.')

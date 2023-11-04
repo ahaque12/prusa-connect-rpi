@@ -27,11 +27,13 @@ After=multi-user.target
 [Service]
 Type=simple
 Restart=always
+EnvironmentFile=/home/<username>/<path>/prusa-connect-rpi/config.env
 ExecStart=/usr/bin/python3 /home/<username>/<path>/prusa-connect-rpi/picam.py
 [Install]
 WantedBy=multi-user.target
 ```
-Note the python directory and path to file should be adjusted as needed. Reload the daemon and start the service
+Note the python directory and path to file should be adjusted as needed. Environment file `config.env` should be edited to remove "export " prefix on each line.
+Reload the daemon and start the service
 ```bash
 $ sudo systemctl daemon-reload
 $ sudo systemctl enable prusa_picam.service

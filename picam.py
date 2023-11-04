@@ -54,7 +54,7 @@ def upload_snapshot():
         'fingerprint': FINGERPRINT
         }
     logger.info('Uploading snapshot...')
-    r = requests.post(HTTP_URL, data=data, headers=headers)
+    r = requests.put(HTTP_URL, data=data, headers=headers)
         
     # Check if request was successful
     if r.status_code == 204:

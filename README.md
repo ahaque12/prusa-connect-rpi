@@ -1,12 +1,12 @@
 # prusa-connect-rpi
 Connect Raspberry Pi camera to Prusa Connect
 
-I had an old octopi setup that I wanted to repurpose to work with my Prusa MK4. This allows you to reuse your rpi camera you have setup.
+I had an old Octopi setup that I wanted to repurpose to work with my Prusa MK4. This repo allows you to reuse the raspberry pi camera you have setup.
 
 # Setup
 
 ## Environment variables
-Update all environment variables in `config.env`. You will need `FINGERPRINT` and `TOKEN` from Prusa Connect. You can get it by adding a new camera.
+Update all environment variables in `config.env`. You will need `FINGERPRINT` and `TOKEN` from Prusa Connect. You can get the fingerprint by adding a new camera and looking at the request headers using Chrome Developer Tools (or similar). 
 
 ## Running
 ```bash
@@ -39,3 +39,7 @@ $ sudo systemctl daemon-reload
 $ sudo systemctl enable prusa_picam.service
 $ sudo systemctl start prusa_picam.service
 ```
+# FAQ
+**I already have octopi running and don't want to shut down the service, can I reuse the web stream?**
+
+Yes, you can set the `STREAM_URL` in `config.env` to the stream. In my case it is `http://octopi.local/webcam/?action=stream`

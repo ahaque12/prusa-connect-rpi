@@ -38,7 +38,7 @@ def take_snapshot():
                            format='image2',
                            pix_fmt='yuvj420p')
     ffmpeg.run(stream, overwrite_output=True)
-    # subprocess.run(['rpicam-still', '-o', OUTPUT_FILE])
+    # subprocess.run(['rpicam-jpeg', '-n', '-o', OUTPUT_FILE])
 
 
 def upload_snapshot():

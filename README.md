@@ -39,6 +39,11 @@ $ sudo systemctl daemon-reload
 $ sudo systemctl enable prusa_picam.service
 $ sudo systemctl start prusa_picam.service
 ```
+
+You can look at the logs for the service with
+```bash
+$ journalctl -u prusa_picam.service -f -n 100
+```
 # FAQ
 **I already have octopi running and don't want to shut down the service, can I reuse the web stream?**
 

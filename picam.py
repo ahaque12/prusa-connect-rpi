@@ -5,6 +5,7 @@ import os
 import time
 import logging
 import ffmpeg
+# import subprocess
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -37,6 +38,7 @@ def take_snapshot():
                            format='image2',
                            pix_fmt='yuvj420p')
     ffmpeg.run(stream, overwrite_output=True)
+    # subprocess.run(['rpicam-still', '-o', OUTPUT_FILE])
 
 
 def upload_snapshot():
@@ -57,7 +59,7 @@ def upload_snapshot():
     r = requests.put(HTTP_URL, data=data, headers=headers)
         
     # Check if request was successful
-    if r.status_code == 204:
+    if r.status_code == 204 or r.status_code == 200:
         logger.info('Snapshot uploaded successfully.')
     else:
         logger.error('Snapshot upload failed.')
